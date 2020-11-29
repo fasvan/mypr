@@ -1,4 +1,4 @@
-FROM python:3.7.2
+FROM httpd:latest
 
 ADD requirements.txt / 
 # "cashing"
@@ -6,4 +6,4 @@ RUN pip install -r requirements.txt
 ADD . /
 EXPOSE 8081
 
-CMD [ "python", "./server.py" ]
+CMD [ "python", "test_get_homepage.py" ]
