@@ -1,12 +1,8 @@
-FROM httpd:latest
-
-RUN apt-get install -y --no-install-recommends \
-    python3.6
+FROM python:3.7.2
 
 ADD requirements.txt / 
 # "cashing"
 RUN pip install -r requirements.txt
 ADD . /
-EXPOSE 8081
 
 CMD [ "python", "test_get_homepage.py", "--alluredir=allure-results" ]
